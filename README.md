@@ -3,6 +3,7 @@
 This repository contains a Python implementation of a small language model (SLM) built from scratch using PyTorch. The project aims to demonstrate the core components of a transformer-based language model, including data preparation, model architecture, training, and text generation.
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Features](#features)
 - [Dataset](#dataset)
@@ -43,9 +44,9 @@ The model architecture is a decoder-only transformer, similar to the GPT series 
 - **Token Embeddings**: Converts input token IDs into dense vector representations.
 - **Positional Embeddings**: Adds positional information to the token embeddings, allowing the model to understand the order of words.
 - **Transformer Blocks**: Multiple layers of custom-implemented transformer blocks. Each block contains:
-    - **Layer Normalization**: Applied before attention and MLP layers.
-    - **Causal Self-Attention**: A multi-head self-attention mechanism that ensures tokens can only attend to previous tokens in the sequence. Flash Attention is used if available, otherwise a standard PyTorch implementation.
-    - **MLP (Feed-Forward Network)**: A two-layer neural network with a GELU activation function.
+  - **Layer Normalization**: Applied before attention and MLP layers.
+  - **Causal Self-Attention**: A multi-head self-attention mechanism that ensures tokens can only attend to previous tokens in the sequence. Flash Attention is used if available, otherwise a standard PyTorch implementation.
+  - **MLP (Feed-Forward Network)**: A two-layer neural network with a GELU activation function.
 - **Language Model Head**: A linear layer that projects the output of the transformer blocks to the vocabulary size, predicting the next token.
 
 Weight tying is used between the token embedding layer and the language model head, meaning they share the same weight matrix. This reduces the number of parameters and often improves performance.
@@ -55,12 +56,14 @@ Weight tying is used between the token embedding layer and the language model he
 To set up the development environment, follow these steps:
 
 1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/waheebedrees/slm-from-scratch.git
-   cd slm-from-scratch
+   git clone https://github.com/waheebedrees/Small-Language-Model.git
+   cd Small-Language-Model
    ```
 
 2. **Create a virtual environment (recommended):**
+
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
@@ -82,12 +85,14 @@ python train.py
 ```
 
 Optional arguments:
+
 - `--data-dir`: Directory to store processed data (default: `./data`)
 - `--output-dir`: Directory to save models and plots (default: `./models`)
 - `--force-reload`: Force re-download and re-tokenize the dataset.
 - `--no-train`: Skip training and only perform setup and text generation (useful for testing the pipeline).
 
 Example:
+
 ```bash
 python train.py --output-dir ./my_trained_models --force-reload
 ```
@@ -144,9 +149,9 @@ print(f"Generated: {generated_text}")
 
 ## References
 
-[1] Ronen Eldan, Eyal Fisher. (2023). *TinyStories: How Small Can Language Models Be and Still Speak Coherently?* arXiv. [https://arxiv.org/abs/2305.07759](https://arxiv.org/abs/2305.07759)
+[1] Ronen Eldan, Eyal Fisher. (2023). _TinyStories: How Small Can Language Models Be and Still Speak Coherently?_ arXiv. [https://arxiv.org/abs/2305.07759](https://arxiv.org/abs/2305.07759)
 
-[2] Andrej Karpathy. *nanoGPT*. GitHub repository. [https://github.com/karpathy/nanoGPT](https://github.com/karpathy/nanoGPT)
+[2] Andrej Karpathy. _nanoGPT_. GitHub repository. [https://github.com/karpathy/nanoGPT](https://github.com/karpathy/nanoGPT)
 
 [3] Hugging Face `datasets` library. [https://huggingface.co/docs/datasets/index](https://huggingface.co/docs/datasets/index)
 
@@ -155,5 +160,3 @@ print(f"Generated: {generated_text}")
 ## License
 
 This project is licensed under the MIT License
-
-

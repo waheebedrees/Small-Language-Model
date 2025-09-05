@@ -10,8 +10,6 @@ This repository contains a Python implementation of a small language model (SLM)
 - [Model Architecture](#model-architecture)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Enhancements and Refactoring](#enhancements-and-refactoring)
 - [References](#references)
 - [License](#license)
 
